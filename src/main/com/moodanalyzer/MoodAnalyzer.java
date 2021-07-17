@@ -1,13 +1,34 @@
 package main.com.moodanalyzer;
 
 public class MoodAnalyzer {
-    //Check
-    public String analyseMood(String message) {
+    private String message;
 
-        if (message.toLowerCase().contains("sad"))
-            return "SAD";
+    public String getMessage() {
+        return message;
+    }
 
-        return "HAPPY";
+    // Default Constructor
+    public MoodAnalyzer() {
+        this.message = null;
+
+    }
+
+    // Parameterised Constructor
+    public MoodAnalyzer(String message) {
+        this.message = message;
+    }
+
+    // Check Sad or Happy Mood
+    public String analyseMood() {
+        try {
+            if (message.toLowerCase().contains("sad"))
+                return "SAD";
+
+            return "HAPPY";
+        } catch (NullPointerException e) {
+            throw new NullPointerException("Invalid Name");
+
+        }
 
     }
 
